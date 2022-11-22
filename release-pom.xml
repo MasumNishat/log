@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.nishat.util</groupId>
   <artifactId>log</artifactId>
-  <version>1.5.1</version>
+  <version>1.5.2</version>
   <name>org.nishat.util:log</name>
   <description>A simple logging library for java</description>
   <url>https://github.com/MasumNishat/log</url>
@@ -85,7 +85,7 @@
       </testResource>
     </testResources>
     <directory>${project.basedir}/target</directory>
-    <finalName>log-1.5.1</finalName>
+    <finalName>log-1.5.2</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -104,6 +104,8 @@
           <updateReleaseInfo>true</updateReleaseInfo>
           <checkModificationExcludes>
             <checkModificationExclude>pom.xml</checkModificationExclude>
+            <checkModificationExclude>dependency-reduced-pom.xml</checkModificationExclude>
+            <checkModificationExclude>release-pom.xml</checkModificationExclude>
           </checkModificationExcludes>
         </configuration>
       </plugin>

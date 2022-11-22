@@ -32,6 +32,8 @@
                     <updateReleaseInfo>true</updateReleaseInfo>
                     <checkModificationExcludes>
                         <checkModificationExclude>pom.xml</checkModificationExclude>
+                        <checkModificationExclude>dependency-reduced-pom.xml</checkModificationExclude>
+                        <checkModificationExclude>release-pom.xml</checkModificationExclude>
                     </checkModificationExcludes>
                 </configuration>
             </plugin>
@@ -111,7 +113,7 @@
 
     <groupId>org.nishat.util</groupId>
     <artifactId>log</artifactId>
-    <version>1.5.1</version>
+    <version>1.5.2</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>A simple logging library for java</description>
@@ -137,7 +139,7 @@
         <connection>scm:git:git@github.com:MasumNishat/log.git</connection>
         <developerConnection>scm:git:git@github.com:MasumNishat/log.git</developerConnection>
         <url>http://github.com/MasumNishat/log</url>
-      <tag>v1.5.1</tag>
+      <tag>v1.5.2</tag>
   </scm>
 
     <properties>
