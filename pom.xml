@@ -89,7 +89,7 @@
             <name>Al Masum Nishat</name>
             <email>masum.nishat21@gmail.com</email>
             <organization>org.nishat</organization>
-            <organizationUrl>https://github.com/MasumNishat</organizationUrl>
+            <organizationUrl>http://nishat.org</organizationUrl>
         </developer>
     </developers>
 
@@ -101,8 +101,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
 </project>
