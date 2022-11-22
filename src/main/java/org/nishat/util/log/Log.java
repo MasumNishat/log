@@ -225,11 +225,11 @@ public class Log {
     public static void write(String tag, String value, LogLevel level) {
         StackTraceElement[] st = Thread.currentThread().getStackTrace();
         if (level == null || LOG_LEVEL.getValue() <= level.getValue())
-            for (int i = st.length - 1; i > 0; i--) {
-                if (!st[i].getClassName().equals(Log.class.getName())) {
-                    int line = st[i].getLineNumber();
-                    String file = st[i].getFileName();
-                    String in = st[i].getClassName();
+            for (int i = 0; i < st.length; i++) {
+                if (st[i].getClassName().equals(Log.class.getName())) {
+                    int line = st[i+1].getLineNumber();
+                    String file = st[i+1].getFileName();
+                    String in = st[i+1].getClassName();
                     System.out.println("[" + (level == null ? "GENERAL" : coloredStr(level.name(), level)) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
                     return;
                 }

@@ -94,7 +94,6 @@ public class DebugManager {
      * Print StackTrace of error object if Debugger is enabled
      * @param e {@link Throwable} error object
      */
-
     public void print(Throwable e) {
         if (isActive) {
             System.out.println(Log.coloredStr("+++++++++++++++++ Start of Debug Catch +++++++++++++++++", LogLevel.ERROR));
