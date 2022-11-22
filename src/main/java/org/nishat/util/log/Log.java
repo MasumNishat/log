@@ -37,7 +37,7 @@ public class Log {
      * @return {@link String}
      */
     static String coloredStr(String str, LogLevel level) {
-        String ANSI_RESET = "\u001B[0m";
+        String ANSI_RESET = LOG_COLOR ? "\u001B[0m": "";
         switch (level) {
             case INFO: {
                 return Color.ANSI_WHITE + str + ANSI_RESET;
@@ -88,6 +88,11 @@ public class Log {
      * </ol>
      */
     public static LogLevel LOG_LEVEL = LogLevel.INFO;
+
+    /**
+     * Set log colorful logging true or false
+     */
+    public static boolean LOG_COLOR = false;
 
     /**
      * Prints a {@link LogLevel#INFO} string. Use it as follows:

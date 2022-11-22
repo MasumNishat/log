@@ -36,6 +36,6 @@ enum Color {
 
     @Override
     public String toString() {
-        return code;
+        return (Log.LOG_COLOR ? code : "");
     }
 }
