@@ -37,7 +37,7 @@ public class Log {
      * @return {@link String}
      */
     static String coloredStr(String str, LogLevel level) {
-        String ANSI_RESET = LOG_COLOR ? "\u001B[0m": "";
+        String ANSI_RESET = LOG_COLOR ? "\u001B[0m" : "";
         switch (level) {
             case INFO: {
                 return Color.ANSI_WHITE + str + ANSI_RESET;
@@ -104,8 +104,7 @@ public class Log {
      * @param value {@link String}
      */
     public static void i(String tag, String value) {
-        if (LOG_LEVEL.getValue() <= LogLevel.INFO.getValue())
-            System.out.println(coloredStr(tag, LogLevel.INFO) + ": " + value);
+        write(tag, value, LogLevel.INFO);
     }
 
     /**
@@ -118,12 +117,7 @@ public class Log {
      * @param value {@link String}
      */
     public static void t(String tag, String value) {
-        if (LOG_LEVEL.getValue() <= LogLevel.TRACE.getValue()) {
-            int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
-            String file = Thread.currentThread().getStackTrace()[2].getFileName();
-            String in = Thread.currentThread().getStackTrace()[2].getClassName();
-            System.out.println("[" + coloredStr(LogLevel.TRACE.name(), LogLevel.TRACE) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
-        }
+        write(tag, value, LogLevel.TRACE);
     }
 
     /**
@@ -136,12 +130,7 @@ public class Log {
      * @param value {@link String}
      */
     public static void d(String tag, String value) {
-        if (LOG_LEVEL.getValue() <= LogLevel.DEBUG.getValue()) {
-            int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
-            String file = Thread.currentThread().getStackTrace()[2].getFileName();
-            String in = Thread.currentThread().getStackTrace()[2].getClassName();
-            System.out.println("[" + coloredStr(LogLevel.DEBUG.name(), LogLevel.DEBUG) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
-        }
+        write(tag, value, LogLevel.DEBUG);
     }
 
     /**
@@ -154,12 +143,7 @@ public class Log {
      * @param value {@link String}
      */
     public static void a(String tag, String value) {
-        if (LOG_LEVEL.getValue() <= LogLevel.ALERT.getValue()) {
-            int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
-            String file = Thread.currentThread().getStackTrace()[2].getFileName();
-            String in = Thread.currentThread().getStackTrace()[2].getClassName();
-            System.out.println("[" + coloredStr(LogLevel.ALERT.name(), LogLevel.ALERT) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
-        }
+        write(tag, value, LogLevel.ALERT);
     }
 
     /**
@@ -172,12 +156,7 @@ public class Log {
      * @param value {@link String}
      */
     public static void w(String tag, String value) {
-        if (LOG_LEVEL.getValue() <= LogLevel.WARNING.getValue()) {
-            int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
-            String file = Thread.currentThread().getStackTrace()[2].getFileName();
-            String in = Thread.currentThread().getStackTrace()[2].getClassName();
-            System.out.println("[" + coloredStr(LogLevel.WARNING.name(), LogLevel.WARNING) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
-        }
+        write(tag, value, LogLevel.WARNING);
     }
 
     /**
@@ -190,12 +169,7 @@ public class Log {
      * @param value {@link String}
      */
     public static void c(String tag, String value) {
-        if (LOG_LEVEL.getValue() <= LogLevel.CRITICAL.getValue()) {
-            int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
-            String file = Thread.currentThread().getStackTrace()[2].getFileName();
-            String in = Thread.currentThread().getStackTrace()[2].getClassName();
-            System.out.println("[" + coloredStr(LogLevel.CRITICAL.name(), LogLevel.CRITICAL) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
-        }
+        write(tag, value, LogLevel.CRITICAL);
     }
 
     /**
@@ -208,12 +182,7 @@ public class Log {
      * @param value {@link String}
      */
     public static void e(String tag, String value) {
-        if (LOG_LEVEL.getValue() <= LogLevel.ERROR.getValue()) {
-            int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
-            String file = Thread.currentThread().getStackTrace()[2].getFileName();
-            String in = Thread.currentThread().getStackTrace()[2].getClassName();
-            System.out.println("[" + coloredStr(LogLevel.ERROR.name(), LogLevel.ERROR) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
-        }
+        write(tag, value, LogLevel.ERROR);
     }
 
     /**
@@ -226,12 +195,7 @@ public class Log {
      * @param value {@link String}
      */
     public static void f(String tag, String value) {
-        if (LOG_LEVEL.getValue() <= LogLevel.FATAL.getValue()) {
-            int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
-            String file = Thread.currentThread().getStackTrace()[2].getFileName();
-            String in = Thread.currentThread().getStackTrace()[2].getClassName();
-            System.out.println("[" + coloredStr(LogLevel.FATAL.name(), LogLevel.FATAL) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
-        }
+        write(tag, value, LogLevel.FATAL);
     }
 
     /**
@@ -244,10 +208,7 @@ public class Log {
      * @param value {@link String}
      */
     public static void write(String tag, String value) {
-        int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
-        String file = Thread.currentThread().getStackTrace()[2].getFileName();
-        String in = Thread.currentThread().getStackTrace()[2].getClassName();
-        System.out.println("[GENERAL] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
+        write(tag, value, null);
 
     }
 
@@ -261,45 +222,17 @@ public class Log {
      * @param value {@link String}
      * @param level {@link LogLevel} nullable
      */
-
     public static void write(String tag, String value, LogLevel level) {
-        switch (level) {
-            case INFO: {
-                i(tag, value);
-                break;
+        StackTraceElement[] st = Thread.currentThread().getStackTrace();
+        if (level == null || LOG_LEVEL.getValue() <= level.getValue())
+            for (int i = st.length - 1; i > 0; i--) {
+                if (!st[i].getClassName().equals(Log.class.getName())) {
+                    int line = st[i].getLineNumber();
+                    String file = st[i].getFileName();
+                    String in = st[i].getClassName();
+                    System.out.println("[" + (level == null ? "GENERAL" : coloredStr(level.name(), level)) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
+                    return;
+                }
             }
-            case TRACE: {
-                t(tag, value);
-                break;
-            }
-            case DEBUG: {
-                d(tag, value);
-                break;
-            }
-            case ALERT: {
-                a(tag, value);
-                break;
-            }
-            case WARNING: {
-                w(tag, value);
-                break;
-            }
-            case CRITICAL: {
-                c(tag, value);
-                break;
-            }
-            case ERROR: {
-                e(tag, value);
-                break;
-            }
-            case FATAL: {
-                f(tag, value);
-                break;
-            }
-            default: {
-                write(tag, value);
-                break;
-            }
-        }
     }
 }
