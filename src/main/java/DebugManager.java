@@ -71,6 +71,8 @@ public class DebugManager {
 
     /**
      * Print String if Debugger is enabled
+     *
+     * @param str {@link String}
      */
     public void print(String str) {
         if (isActive) System.out.println(str);
@@ -78,7 +80,7 @@ public class DebugManager {
 
     /**
      * Print StackTrace of error object if Debugger is enabled
-     * @param e caught error object
+     * @param e {@link Exception} error object
      */
     public void print(Exception e) {
         if (isActive) {
@@ -90,7 +92,7 @@ public class DebugManager {
 
     /**
      * Print StackTrace of error object if Debugger is enabled
-     * @param e caught error object
+     * @param e {@link Throwable} error object
      */
 
     public void print(Throwable e) {
@@ -103,7 +105,7 @@ public class DebugManager {
 
     /**
      * Catch trace as string, useful to send application debug report;
-     * @param e caught error object
+     * @param e {@link Exception} error object
      * @return String
      */
     public String catchTrace(Exception e) {
@@ -115,7 +117,7 @@ public class DebugManager {
 
     /**
      * Catch trace as string, useful to send application debug report;
-     * @param e caught error object
+     * @param e {@link Throwable} error object
      * @return String
      */
     public String catchTrace(Throwable e) {

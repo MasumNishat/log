@@ -70,8 +70,8 @@ public class Log {
      * <pre>
      *     Log.LOG_LEVEL = LogLevel.ERROR;
      * </pre>
-     * Default value is {@link LogLevel#INFO}
-     * <p>
+     * Default value is {@link LogLevel#INFO}<br/>
+     *
      *     Serial of log levels is
      *     <ol>
      *         <li>{@link LogLevel#INFO}</li>
@@ -83,7 +83,8 @@ public class Log {
      *         <li>{@link LogLevel#ERROR}</li>
      *         <li>{@link LogLevel#FATAL}</li>
      *     </ol>
-     * </p>
+     *
+     *
      */
     public static LogLevel LOG_LEVEL = LogLevel.INFO;
 
@@ -218,6 +219,14 @@ public class Log {
         }
     }
 
+    /**
+     * Prints a general string. Use it as follows:
+     * <pre>
+     *     Log.write("foo", "this is a fatal text");
+     * </pre>
+     * @param tag {@link String}
+     * @param value {@link String}
+     */
     public static void write(String tag, String value) {
         int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
         String file = Thread.currentThread().getStackTrace()[2].getFileName();
@@ -225,6 +234,16 @@ public class Log {
         System.out.println("[GENERAL] ["+ LocalDateTime.now()+"] ["+in+"] ["+tag+": "+value+"] from ("+file+":"+line+")");
 
     }
+
+    /**
+     * Prints a dynamic {@link LogLevel} string. Use it as follows:
+     * <pre>
+     *     Log.write("foo", "this is a fatal text", LogLevel.FATAL);
+     * </pre>
+     * @param tag {@link String}
+     * @param value {@link String}
+     * @param level {@link LogLevel} nullable
+     */
 
     public static void write(String tag, String value, LogLevel level) {
         switch (level) {

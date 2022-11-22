@@ -18,6 +18,9 @@
  *
  */
 
+/**
+ * Different types of {@link LogLevel}
+ */
 public enum LogLevel {
     /**
      * It is white colored {@link LogLevel}
@@ -66,10 +69,19 @@ public enum LogLevel {
 
     FATAL(8);
 
-    private final int value;
+    final int value;
+
+    /**
+     * @param value int
+     */
     LogLevel(int value){
         this.value = value;
     }
+
+    /**
+     * Get serial number of error type
+     * @return int
+     */
     public int getValue(){
         return value;
     }
