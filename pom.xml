@@ -24,12 +24,18 @@
                 </configuration>
             </plugin>
             <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <updateReleaseInfo>true</updateReleaseInfo>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>3.0.0-M7</version>
                 <configuration>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
-                    <updateReleaseInfo>true</updateReleaseInfo>
                     <checkModificationExcludes>
                         <checkModificationExclude>pom.xml</checkModificationExclude>
                         <checkModificationExclude>dependency-reduced-pom.xml</checkModificationExclude>
@@ -113,7 +119,7 @@
 
     <groupId>org.nishat.util</groupId>
     <artifactId>log</artifactId>
-    <version>1.5.4-SNAPSHOT</version>
+    <version>1.5.4</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>A simple logging library for java</description>
@@ -139,7 +145,7 @@
         <connection>scm:git:git@github.com:MasumNishat/log.git</connection>
         <developerConnection>scm:git:git@github.com:MasumNishat/log.git</developerConnection>
         <url>http://github.com/MasumNishat/log</url>
-      <tag>log-1.5</tag>
+      <tag>v1.5.4</tag>
   </scm>
 
     <properties>
