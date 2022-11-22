@@ -132,7 +132,7 @@
 
     <scm>
         <connection>scm:git:git://github.com/MasumNishat/log.git</connection>
-        <developerConnection>scm:git:ssh://github.com:MasumNishat/log.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:MasumNishat/log.git</developerConnection>
         <url>http://github.com/MasumNishat/log</url>
       <tag>log-1.2</tag>
   </scm>
