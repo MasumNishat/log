@@ -136,7 +136,7 @@
         <connection>scm:git:git@github.com:MasumNishat/log.git</connection>
         <developerConnection>scm:git:git@github.com:MasumNishat/log.git</developerConnection>
         <url>http://github.com/MasumNishat/log</url>
-      <tag>log-1.5</tag>
+      <tag>log-1.5.0</tag>
   </scm>
 
     <properties>
