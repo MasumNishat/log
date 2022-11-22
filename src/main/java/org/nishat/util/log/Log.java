@@ -17,7 +17,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  *
  */
-
+package org.nishat.util.log;
 import java.time.LocalDateTime;
 
 /**

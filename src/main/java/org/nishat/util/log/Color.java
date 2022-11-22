@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2022 Al Masum Nishat (http://nishat.org)
  *
@@ -17,72 +18,24 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  *
  */
+package org.nishat.util.log;
+enum Color {
+    ANSI_BLACK("\u001B[30m"),
+    ANSI_RED("\u001B[31m"),
+    ANSI_GREEN("\u001B[32m"),
+    ANSI_YELLOW("\u001B[33m"),
+    ANSI_BLUE("\u001B[34m"),
+    ANSI_PURPLE("\u001B[35m"),
+    ANSI_CYAN("\u001B[36m"),
+    ANSI_WHITE("\u001B[37m");
 
-/**
- * Different types of {@link LogLevel}
- */
-public enum LogLevel {
-    /**
-     * It is white colored {@link LogLevel}
-     */
-    INFO(1),
-
-    /**
-     * It is green colored {@link LogLevel}
-     */
-
-    TRACE(2),
-
-    /**
-     * It is purple colored {@link LogLevel}
-     */
-
-    DEBUG(3),
-
-    /**
-     * It is cyan colored {@link LogLevel}
-     */
-
-    ALERT(4),
-
-    /**
-     * It is yellow colored {@link LogLevel}
-     */
-
-    WARNING(5),
-
-    /**
-     * It is blue colored {@link LogLevel}
-     */
-
-    CRITICAL(6),
-
-    /**
-     * It is red colored {@link LogLevel}
-     */
-
-    ERROR(7),
-
-    /**
-     * It is red colored {@link LogLevel}
-     */
-
-    FATAL(8);
-
-    final int value;
-
-    /**
-     * @param value int
-     */
-    LogLevel(int value){
-        this.value = value;
+    private final String code;
+    Color (String code) {
+        this.code = code;
     }
 
-    /**
-     * Get serial number of error type
-     * @return int
-     */
-    public int getValue(){
-        return value;
+    @Override
+    public String toString() {
+        return code;
     }
 }
