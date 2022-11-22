@@ -18,46 +18,47 @@
  *
  */
 package org.nishat.util.log;
+
 import java.time.LocalDateTime;
 
 /**
  * {@link Log} is an integration of easy java logging system. It may use to display
  * different types of log in different color to debug programs easily.
  *
- * @implSpec
- * This class is immutable and thread-safe.
+ * @implSpec This class is immutable and thread-safe.
  */
 public class Log {
 
     /**
      * Color string according to {@link LogLevel}
      *
-     * @param str {@link String}
+     * @param str   {@link String}
      * @param level {@link LogLevel}
      * @return {@link String}
      */
     static String coloredStr(String str, LogLevel level) {
         String ANSI_RESET = "\u001B[0m";
         switch (level) {
-            case INFO -> {
+            case INFO: {
                 return Color.ANSI_WHITE + str + ANSI_RESET;
             }
-            case TRACE -> {
+            case TRACE: {
                 return Color.ANSI_GREEN + str + ANSI_RESET;
             }
-            case DEBUG -> {
+            case DEBUG: {
                 return Color.ANSI_PURPLE + str + ANSI_RESET;
             }
-            case ALERT -> {
+            case ALERT: {
                 return Color.ANSI_CYAN + str + ANSI_RESET;
             }
-            case WARNING -> {
+            case WARNING: {
                 return Color.ANSI_YELLOW + str + ANSI_RESET;
             }
-            case CRITICAL -> {
+            case CRITICAL: {
                 return Color.ANSI_BLUE + str + ANSI_RESET;
             }
-            case ERROR, FATAL -> {
+            case ERROR:
+            case FATAL: {
                 return Color.ANSI_RED + str + ANSI_RESET;
             }
 
@@ -70,21 +71,21 @@ public class Log {
      * <pre>
      *     Log.LOG_LEVEL = LogLevel.ERROR;
      * </pre>
-     * Default value is {@link LogLevel#INFO}<br/>
-     *
-     *     Serial of log levels is
-     *     <ol>
-     *         <li>{@link LogLevel#INFO}</li>
-     *         <li>{@link LogLevel#TRACE}</li>
-     *         <li>{@link LogLevel#DEBUG}</li>
-     *         <li>{@link LogLevel#ALERT}</li>
-     *         <li>{@link LogLevel#WARNING}</li>
-     *         <li>{@link LogLevel#CRITICAL}</li>
-     *         <li>{@link LogLevel#ERROR}</li>
-     *         <li>{@link LogLevel#FATAL}</li>
-     *     </ol>
+     * Default value is {@link LogLevel#INFO}
      *
      *
+     * <p>
+     * Serial of log levels is
+     * <ol>
+     *     <li>{@link LogLevel#INFO}</li>
+     *     <li>{@link LogLevel#TRACE}</li>
+     *     <li>{@link LogLevel#DEBUG}</li>
+     *     <li>{@link LogLevel#ALERT}</li>
+     *     <li>{@link LogLevel#WARNING}</li>
+     *     <li>{@link LogLevel#CRITICAL}</li>
+     *     <li>{@link LogLevel#ERROR}</li>
+     *     <li>{@link LogLevel#FATAL}</li>
+     * </ol>
      */
     public static LogLevel LOG_LEVEL = LogLevel.INFO;
 
@@ -93,11 +94,13 @@ public class Log {
      * <pre>
      *     Log.i("foo", "this is an info text");
      * </pre>
-     * @param tag {@link String}
+     *
+     * @param tag   {@link String}
      * @param value {@link String}
      */
-    public static void i(String tag, String value){
-        if (LOG_LEVEL.getValue()<= LogLevel.INFO.getValue()) System.out.println(coloredStr(tag, LogLevel.INFO)+": "+ value);
+    public static void i(String tag, String value) {
+        if (LOG_LEVEL.getValue() <= LogLevel.INFO.getValue())
+            System.out.println(coloredStr(tag, LogLevel.INFO) + ": " + value);
     }
 
     /**
@@ -105,15 +108,16 @@ public class Log {
      * <pre>
      *     Log.t("foo", "this is a trace text");
      * </pre>
-     * @param tag {@link String}
+     *
+     * @param tag   {@link String}
      * @param value {@link String}
      */
-    public static void t(String tag, String value){
-        if (LOG_LEVEL.getValue()<= LogLevel.TRACE.getValue()){
+    public static void t(String tag, String value) {
+        if (LOG_LEVEL.getValue() <= LogLevel.TRACE.getValue()) {
             int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
             String file = Thread.currentThread().getStackTrace()[2].getFileName();
             String in = Thread.currentThread().getStackTrace()[2].getClassName();
-            System.out.println("["+ coloredStr(LogLevel.TRACE.name(), LogLevel.TRACE)+"] ["+ LocalDateTime.now()+"] ["+in+"] ["+tag+": "+value+"] from ("+file+":"+line+")");
+            System.out.println("[" + coloredStr(LogLevel.TRACE.name(), LogLevel.TRACE) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
         }
     }
 
@@ -122,15 +126,16 @@ public class Log {
      * <pre>
      *     Log.d("foo", "this is a debug text");
      * </pre>
-     * @param tag {@link String}
+     *
+     * @param tag   {@link String}
      * @param value {@link String}
      */
-    public static void d(String tag, String value){
-        if (LOG_LEVEL.getValue()<= LogLevel.DEBUG.getValue()){
+    public static void d(String tag, String value) {
+        if (LOG_LEVEL.getValue() <= LogLevel.DEBUG.getValue()) {
             int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
             String file = Thread.currentThread().getStackTrace()[2].getFileName();
             String in = Thread.currentThread().getStackTrace()[2].getClassName();
-            System.out.println("["+ coloredStr(LogLevel.DEBUG.name(), LogLevel.DEBUG)+"] ["+ LocalDateTime.now()+"] ["+in+"] ["+tag+": "+value+"] from ("+file+":"+line+")");
+            System.out.println("[" + coloredStr(LogLevel.DEBUG.name(), LogLevel.DEBUG) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
         }
     }
 
@@ -139,15 +144,16 @@ public class Log {
      * <pre>
      *     Log.a("foo", "this is an alert text");
      * </pre>
-     * @param tag {@link String}
+     *
+     * @param tag   {@link String}
      * @param value {@link String}
      */
-    public static void a(String tag, String value){
-        if (LOG_LEVEL.getValue()<= LogLevel.ALERT.getValue()){
+    public static void a(String tag, String value) {
+        if (LOG_LEVEL.getValue() <= LogLevel.ALERT.getValue()) {
             int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
             String file = Thread.currentThread().getStackTrace()[2].getFileName();
             String in = Thread.currentThread().getStackTrace()[2].getClassName();
-            System.out.println("["+ coloredStr(LogLevel.ALERT.name(), LogLevel.ALERT)+"] ["+ LocalDateTime.now()+"] ["+in+"] ["+tag+": "+value+"] from ("+file+":"+line+")");
+            System.out.println("[" + coloredStr(LogLevel.ALERT.name(), LogLevel.ALERT) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
         }
     }
 
@@ -156,15 +162,16 @@ public class Log {
      * <pre>
      *     Log.w("foo", "this is a warning text");
      * </pre>
-     * @param tag {@link String}
+     *
+     * @param tag   {@link String}
      * @param value {@link String}
      */
-    public static void w(String tag, String value){
-        if (LOG_LEVEL.getValue()<= LogLevel.WARNING.getValue()){
+    public static void w(String tag, String value) {
+        if (LOG_LEVEL.getValue() <= LogLevel.WARNING.getValue()) {
             int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
             String file = Thread.currentThread().getStackTrace()[2].getFileName();
             String in = Thread.currentThread().getStackTrace()[2].getClassName();
-            System.out.println("["+ coloredStr(LogLevel.WARNING.name(), LogLevel.WARNING)+"] ["+ LocalDateTime.now()+"] ["+in+"] ["+tag+": "+value+"] from ("+file+":"+line+")");
+            System.out.println("[" + coloredStr(LogLevel.WARNING.name(), LogLevel.WARNING) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
         }
     }
 
@@ -173,15 +180,16 @@ public class Log {
      * <pre>
      *     Log.c("foo", "this is a critical text");
      * </pre>
-     * @param tag {@link String}
+     *
+     * @param tag   {@link String}
      * @param value {@link String}
      */
-    public static void c(String tag, String value){
-        if (LOG_LEVEL.getValue()<= LogLevel.CRITICAL.getValue()){
+    public static void c(String tag, String value) {
+        if (LOG_LEVEL.getValue() <= LogLevel.CRITICAL.getValue()) {
             int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
             String file = Thread.currentThread().getStackTrace()[2].getFileName();
             String in = Thread.currentThread().getStackTrace()[2].getClassName();
-            System.out.println("["+ coloredStr(LogLevel.CRITICAL.name(), LogLevel.CRITICAL)+"] ["+ LocalDateTime.now()+"] ["+in+"] ["+tag+": "+value+"] from ("+file+":"+line+")");
+            System.out.println("[" + coloredStr(LogLevel.CRITICAL.name(), LogLevel.CRITICAL) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
         }
     }
 
@@ -190,15 +198,16 @@ public class Log {
      * <pre>
      *     Log.e("foo", "this is an error text");
      * </pre>
-     * @param tag {@link String}
+     *
+     * @param tag   {@link String}
      * @param value {@link String}
      */
-    public static void e(String tag, String value){
-        if (LOG_LEVEL.getValue()<= LogLevel.ERROR.getValue()){
+    public static void e(String tag, String value) {
+        if (LOG_LEVEL.getValue() <= LogLevel.ERROR.getValue()) {
             int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
             String file = Thread.currentThread().getStackTrace()[2].getFileName();
             String in = Thread.currentThread().getStackTrace()[2].getClassName();
-            System.out.println("["+ coloredStr(LogLevel.ERROR.name(), LogLevel.ERROR)+"] ["+ LocalDateTime.now()+"] ["+in+"] ["+tag+": "+value+"] from ("+file+":"+line+")");
+            System.out.println("[" + coloredStr(LogLevel.ERROR.name(), LogLevel.ERROR) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
         }
     }
 
@@ -207,15 +216,16 @@ public class Log {
      * <pre>
      *     Log.f("foo", "this is a fatal text");
      * </pre>
-     * @param tag {@link String}
+     *
+     * @param tag   {@link String}
      * @param value {@link String}
      */
-    public static void f(String tag, String value){
-        if (LOG_LEVEL.getValue()<= LogLevel.FATAL.getValue()){
+    public static void f(String tag, String value) {
+        if (LOG_LEVEL.getValue() <= LogLevel.FATAL.getValue()) {
             int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
             String file = Thread.currentThread().getStackTrace()[2].getFileName();
             String in = Thread.currentThread().getStackTrace()[2].getClassName();
-            System.out.println("["+ coloredStr(LogLevel.FATAL.name(), LogLevel.FATAL)+"] ["+ LocalDateTime.now()+"] ["+in+"] ["+tag+": "+value+"] from ("+file+":"+line+")");
+            System.out.println("[" + coloredStr(LogLevel.FATAL.name(), LogLevel.FATAL) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
         }
     }
 
@@ -224,14 +234,15 @@ public class Log {
      * <pre>
      *     Log.write("foo", "this is a fatal text");
      * </pre>
-     * @param tag {@link String}
+     *
+     * @param tag   {@link String}
      * @param value {@link String}
      */
     public static void write(String tag, String value) {
         int line = Thread.currentThread().getStackTrace()[2].getLineNumber();
         String file = Thread.currentThread().getStackTrace()[2].getFileName();
         String in = Thread.currentThread().getStackTrace()[2].getClassName();
-        System.out.println("[GENERAL] ["+ LocalDateTime.now()+"] ["+in+"] ["+tag+": "+value+"] from ("+file+":"+line+")");
+        System.out.println("[GENERAL] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
 
     }
 
@@ -240,22 +251,50 @@ public class Log {
      * <pre>
      *     Log.write("foo", "this is a fatal text", LogLevel.FATAL);
      * </pre>
-     * @param tag {@link String}
+     *
+     * @param tag   {@link String}
      * @param value {@link String}
      * @param level {@link LogLevel} nullable
      */
 
     public static void write(String tag, String value, LogLevel level) {
         switch (level) {
-            case INFO -> i(tag, value);
-            case TRACE -> t(tag, value);
-            case DEBUG -> d(tag, value);
-            case ALERT -> a(tag, value);
-            case WARNING -> w(tag, value);
-            case CRITICAL -> c(tag, value);
-            case ERROR -> e(tag, value);
-            case FATAL -> f(tag, value);
-            default -> write(tag, value);
+            case INFO: {
+                i(tag, value);
+                break;
+            }
+            case TRACE: {
+                t(tag, value);
+                break;
+            }
+            case DEBUG: {
+                d(tag, value);
+                break;
+            }
+            case ALERT: {
+                a(tag, value);
+                break;
+            }
+            case WARNING: {
+                w(tag, value);
+                break;
+            }
+            case CRITICAL: {
+                c(tag, value);
+                break;
+            }
+            case ERROR: {
+                e(tag, value);
+                break;
+            }
+            case FATAL: {
+                f(tag, value);
+                break;
+            }
+            default: {
+                write(tag, value);
+                break;
+            }
         }
     }
 }
