@@ -33,7 +33,6 @@ public class DebugManager {
     private boolean isActive = false;
 
     private DebugManager() {
-        throw new RuntimeException("Making instance is not permitted");
     }
 
     /**
