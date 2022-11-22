@@ -108,7 +108,7 @@
 
     <groupId>org.nishat.util</groupId>
     <artifactId>log</artifactId>
-    <version>1.4</version>
+    <version>1.5</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>A simple logging library for java</description>
@@ -134,7 +134,7 @@
         <connection>scm:git:git@github.com:MasumNishat/log.git</connection>
         <developerConnection>scm:git:git@github.com:MasumNishat/log.git</developerConnection>
         <url>http://github.com/MasumNishat/log</url>
-      <tag>log-1.4</tag>
+      <tag>log-1.5</tag>
   </scm>
 
     <properties>
