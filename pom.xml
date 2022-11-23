@@ -27,8 +27,8 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:MasumNishat/log.git</connection>
-        <developerConnection>scm:git:git@github.com:MasumNishat/log.git</developerConnection>
+        <connection>scm:git:https://github.com/MasumNishat/log.git</connection>
+        <developerConnection>scm:git:https://github.com/MasumNishat/log.git</developerConnection>
         <url>http://github.com/MasumNishat/log</url>
       <tag>v1.5.14</tag>
   </scm>
