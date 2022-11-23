@@ -1,2 +1,0 @@
-# log
-Java simple Log
