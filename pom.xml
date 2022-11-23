@@ -71,6 +71,9 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>3.0.0-M7</version>
                 <configuration>
+                    <providerImplementations>
+                        <git>jgit</git>
+                    </providerImplementations>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                     <checkModificationExcludes>
                         <checkModificationExclude>pom.xml</checkModificationExclude>
@@ -78,6 +81,13 @@
                         <checkModificationExclude>release-pom.xml</checkModificationExclude>
                     </checkModificationExcludes>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-jgit</artifactId>
+                        <version>2.0.0-M3</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
