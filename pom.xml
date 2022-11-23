@@ -4,7 +4,7 @@
 
     <groupId>org.nishat.util</groupId>
     <artifactId>log</artifactId>
-    <version>1.5.16-SNAPSHOT</version>
+    <version>1.5.16</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>A simple logging library for java</description>
@@ -29,9 +29,11 @@
     <scm>
         <connection>scm:git:https://github.com/MasumNishat/log.git</connection>
         <developerConnection>scm:git:https://github.com/MasumNishat/log.git</developerConnection>
+        <!--        <connection>scm:git:git@github.com:MasumNishat/log.git</connection>-->
+        <!--        <developerConnection>scm:git:git@github.com:MasumNishat/log.git</developerConnection>-->
         <url>http://github.com/MasumNishat/log</url>
-      <tag>v1.5.11</tag>
-  </scm>
+        <tag>v1.5.16</tag>
+    </scm>
 
     <properties>
         <java.version>8</java.version>
