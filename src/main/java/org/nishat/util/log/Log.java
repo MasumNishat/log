@@ -230,7 +230,10 @@ public class Log {
                     int line = st[i+1].getLineNumber();
                     String file = st[i+1].getFileName();
                     String in = st[i+1].getClassName();
-                    System.out.println("[" + (level == null ? "GENERAL" : coloredStr(level.name(), level)) + "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
+                    if (level != null)
+                        System.out.println("[" + coloredStr(level.name(), level)+ "] [" + LocalDateTime.now() + "] [" + in + "] [" + tag + ": " + value + "] from (" + file + ":" + line + ")");
+                    else
+                        System.out.println("[" + coloredStr(tag, LogLevel.INFO) +"] " + value);
                     return;
                 }
             }
