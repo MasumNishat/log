@@ -1,6 +1,5 @@
-
 /*
- * Copyright 2022 Al Masum Nishat (http://nishat.org)
+ * Copyright 2023 Al Masum Nishat (http://nishat.org)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction, including
@@ -18,27 +17,35 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  *
  */
+
 package org.nishat.util.log;
 
-import static org.nishat.util.log.GlobalLogConfig.LOG_COLOR;
+import java.util.UUID;
 
-enum Color {
-    ANSI_BLACK("\u001B[30m"),
-    ANSI_RED("\u001B[31m"),
-    ANSI_GREEN("\u001B[32m"),
-    ANSI_YELLOW("\u001B[33m"),
-    ANSI_BLUE("\u001B[34m"),
-    ANSI_PURPLE("\u001B[35m"),
-    ANSI_CYAN("\u001B[36m"),
-    ANSI_WHITE("\u001B[37m");
+public enum LogProperties {
+    FILE(UUID.randomUUID()),
+    PACKAGE(UUID.randomUUID()),
+    TIMESTAMP(UUID.randomUUID()),
+    INDEX(UUID.randomUUID()),
+    VALUE(UUID.randomUUID()),
+    LEVEL(UUID.randomUUID()),
+    LINE(UUID.randomUUID());
 
-    private final String code;
-    Color (String code) {
-        this.code = code;
+    final UUID id;
+    LogProperties(UUID id) {
+        this.id = id;
+    }
+
+    /**
+     *
+     * @return UUID
+     */
+    public UUID getId() {
+        return id;
     }
 
     @Override
     public String toString() {
-        return code;
+        return getId().toString();
     }
 }

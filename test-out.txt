@@ -1,0 +1,4 @@
+test: error0
+test: error1
+test: error2
+test: error3

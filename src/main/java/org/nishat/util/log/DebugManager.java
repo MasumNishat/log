@@ -95,9 +95,9 @@ public class DebugManager {
      */
     public void print(Throwable e) {
         if (isActive) {
-            System.out.println(Log.coloredStr("+++++++++++++++++ Start of Debug Catch +++++++++++++++++", LogLevel.ERROR));
+            System.out.println(Log.coloredStr("+++++++++++++++++ Start of Debug Catch +++++++++++++++++", LogLevel.ERROR, null));
             System.out.println(catchTrace(e));
-            System.out.println(Log.coloredStr("+++++++++++++++++ End of Debug Catch +++++++++++++++++", LogLevel.ERROR));
+            System.out.println(Log.coloredStr("+++++++++++++++++ End of Debug Catch +++++++++++++++++", LogLevel.ERROR, null));
         }
     }
 

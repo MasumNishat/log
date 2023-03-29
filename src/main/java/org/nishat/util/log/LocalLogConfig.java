@@ -1,6 +1,5 @@
-
 /*
- * Copyright 2022 Al Masum Nishat (http://nishat.org)
+ * Copyright 2023 Al Masum Nishat (http://nishat.org)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction, including
@@ -18,27 +17,39 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  *
  */
+
 package org.nishat.util.log;
 
-import static org.nishat.util.log.GlobalLogConfig.LOG_COLOR;
+import java.io.Writer;
 
-enum Color {
-    ANSI_BLACK("\u001B[30m"),
-    ANSI_RED("\u001B[31m"),
-    ANSI_GREEN("\u001B[32m"),
-    ANSI_YELLOW("\u001B[33m"),
-    ANSI_BLUE("\u001B[34m"),
-    ANSI_PURPLE("\u001B[35m"),
-    ANSI_CYAN("\u001B[36m"),
-    ANSI_WHITE("\u001B[37m");
+public class LocalLogConfig {
+    public Writer WRITER;
+    public String FORMAT;
+    /**
+     * Minimum  {@link LogLevel} of application. Configure this at very beginning of startup as follows:
+     * <pre>
+     *     Log.LOG_LEVEL = LogLevel.ERROR;
+     * </pre>
+     * Default value is {@link LogLevel#INFO}
+     *
+     *
+     * <p>
+     * Serial of log levels is
+     * <ol>
+     *     <li>{@link LogLevel#INFO}</li>
+     *     <li>{@link LogLevel#TRACE}</li>
+     *     <li>{@link LogLevel#DEBUG}</li>
+     *     <li>{@link LogLevel#ALERT}</li>
+     *     <li>{@link LogLevel#WARNING}</li>
+     *     <li>{@link LogLevel#CRITICAL}</li>
+     *     <li>{@link LogLevel#ERROR}</li>
+     *     <li>{@link LogLevel#FATAL}</li>
+     * </ol>
+     */
+    public LogLevel LOG_LEVEL;
 
-    private final String code;
-    Color (String code) {
-        this.code = code;
-    }
-
-    @Override
-    public String toString() {
-        return code;
-    }
+    /**
+     * Set log colorful logging true or false
+     */
+    public boolean LOG_COLOR;
 }
